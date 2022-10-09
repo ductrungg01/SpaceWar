@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
     float m_score;
     bool m_isGameOver;
 
-    public float enemySpawnDowntime = 3.0f;
+    public float enemySpawnDowntime = 1.5f;
     float m_enemySpawnTime;
 
     public GameObject enemy;
@@ -77,5 +77,12 @@ public class GameController : MonoBehaviour
     public void setGameOverState(bool state)
     {
         this.m_isGameOver = state; 
+    }
+    public void replay()
+    {
+        m_score = 0;
+        m_isGameOver = false;
+        m_ui.setScoreText("Score: " + m_score);
+        m_ui.showGameOverPanel(false);
     }
 }

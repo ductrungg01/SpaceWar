@@ -6,7 +6,7 @@ public class Enemy001 : MonoBehaviour
 {
     public float moveSpeed = 5.0f;
     public GameObject bullet;
-    public float spawnTime = 3.0f;
+    public float spawnTime = 2f;
     float m_spawnTime;
 
     GameController m_gc;

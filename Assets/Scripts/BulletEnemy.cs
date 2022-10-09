@@ -31,10 +31,6 @@ public class BulletEnemy : MonoBehaviour
         {
             m_gc.setGameOverState(true);
         }
-        if (collision.CompareTag("Enemy"))
-        {
-            Debug.Log("Va cham BULLET - ENEMY");
-        }
         if (collision.CompareTag("DeathZone"))
         {
             Destroy(gameObject);
