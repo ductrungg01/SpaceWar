@@ -1,18 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Text score;
+    public GameObject gameoverPanel;
+
+    public void setScoreText(string s)
     {
-        
+        if (score != null)
+        {
+            score.text = s;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void showGameOverPanel(bool isShow)
     {
-        
+        if (gameoverPanel)
+        {
+            gameoverPanel.SetActive(isShow);
+        }
     }
 }

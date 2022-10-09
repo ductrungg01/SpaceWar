@@ -5,11 +5,12 @@ using UnityEngine;
 public class BulletPlayer : MonoBehaviour
 {
     public float moveSpeed = 5.0f;
+    GameController m_gc;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        m_gc = FindObjectOfType<GameController>();
     }
 
     // Update is called once per frame
@@ -27,7 +28,7 @@ public class BulletPlayer : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Va cham BULLET - PLAYER");
+            m_gc.setGameOverState(true);
         } else if (collision.CompareTag("Enemy"))
         {
             Debug.Log("Va cham BULLET - ENEMY");

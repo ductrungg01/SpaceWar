@@ -9,10 +9,13 @@ public class Enemy001 : MonoBehaviour
     public float spawnTime = 3.0f;
     float m_spawnTime;
 
+    GameController m_gc;
+
     // Start is called before the first frame update
     void Start()
     {
         m_spawnTime = 0;
+        m_gc = FindObjectOfType<GameController>();
     }
 
     // Update is called once per frame
@@ -45,7 +48,7 @@ public class Enemy001 : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("Va cham ENEMY - PLAYER");
+            m_gc.setGameOverState(true);
         }
         else if (collision.CompareTag("DeathZone"))
         {

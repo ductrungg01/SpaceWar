@@ -12,17 +12,29 @@ public class GameController : MonoBehaviour
 
     public GameObject enemy;
 
+    UIManager m_ui;
+
     // Start is called before the first frame update
     void Start()
     {
         m_isGameOver = false;
         m_enemySpawnTime = 0;
+
+        m_ui = FindObjectOfType<UIManager>();
+        m_ui.setScoreText("Score:" + m_score);
     }
 
     // Update is called once per frame
     void Update()
     {
         m_enemySpawnTime -= Time.deltaTime;
+
+        if (m_isGameOver)
+        {
+            m_enemySpawnTime = 0;
+            m_ui.showGameOverPanel(true);
+            return;
+        }
 
         if (m_enemySpawnTime <= 0)
         {
