@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3
-  bullet: {fileID: 0}
+  bullet: {fileID: 229613964699580394, guid: 8ecd6ce19879e3547bdb97aac9fe34f9, type: 3}
   spawnTime: 2
 --- !u!50 &8519753760920315979
 Rigidbody2D:

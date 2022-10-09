@@ -7,16 +7,38 @@ public class GameController : MonoBehaviour
     float m_score;
     bool m_isGameOver;
 
+    public float enemySpawnDowntime = 3.0f;
+    float m_enemySpawnTime;
+
+    public GameObject enemy;
+
     // Start is called before the first frame update
     void Start()
     {
         m_isGameOver = false;
+        m_enemySpawnTime = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        m_enemySpawnTime -= Time.deltaTime;
 
+        if (m_enemySpawnTime <= 0)
+        {
+            spawnEnemy();
+            m_enemySpawnTime = enemySpawnDowntime;
+        }
+    }
+
+    void spawnEnemy()
+    {
+        Vector2 ePos = new Vector2(Random.Range(-5, 5), 9);
+
+        if (enemy)
+        {
+            Instantiate(enemy, ePos, Quaternion.identity);
+        }
     }
 
     public void setScore(int s)
