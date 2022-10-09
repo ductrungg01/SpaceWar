@@ -47,5 +47,9 @@ public class Enemy001 : MonoBehaviour
         {
             Debug.Log("Va cham ENEMY - PLAYER");
         }
+        else if (collision.CompareTag("DeathZone"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -31,6 +31,9 @@ public class BulletPlayer : MonoBehaviour
         } else if (collision.CompareTag("Enemy"))
         {
             Debug.Log("Va cham BULLET - ENEMY");
+        } else if (collision.CompareTag("DeathZone"))
+        {
+            Destroy(gameObject);
         }
     }
 }

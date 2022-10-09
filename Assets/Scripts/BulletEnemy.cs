@@ -33,5 +33,9 @@ public class BulletEnemy : MonoBehaviour
         {
             Debug.Log("Va cham BULLET - ENEMY");
         }
+        if (collision.CompareTag("DeathZone"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
