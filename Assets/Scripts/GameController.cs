@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
     void Update()
     {
         m_enemySpawnTime -= Time.deltaTime;
+        m_ui.setScoreText("Score:" + m_score);
 
         if (m_isGameOver)
         {
@@ -61,6 +62,11 @@ public class GameController : MonoBehaviour
     public float getScore()
     {
         return m_score;
+    }
+
+    public void IncreamentScore()
+    {
+        this.m_score++;
     }
 
     public bool isGameOver()

@@ -11,10 +11,13 @@ public class SpaceshipPlayer : MonoBehaviour
     public float bulletDowntime = 0.2f;
     float m_time;
 
+    GameController m_gc;
+
     // Start is called before the first frame update
     void Start()
     {
         m_time = 0;
+        m_gc = FindObjectOfType<GameController>();
     }
 
     // Update is called once per frame
@@ -35,7 +38,7 @@ public class SpaceshipPlayer : MonoBehaviour
 
     void spawnBullet()
     {
-        Vector2 bulletPosition = new Vector2(this.transform.position.x, this.transform.position.y + 0.65f);
+        Vector2 bulletPosition = new Vector2(this.transform.position.x, this.transform.position.y + 0.8f);
 
         if (bullet)
         {
@@ -43,6 +46,13 @@ public class SpaceshipPlayer : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Bullet"))
+        {
+            m_gc.setGameOverState(true);
+        }
+    }
     private void FixedUpdate()
     {
         xDirection = Input.GetAxisRaw("Horizontal");

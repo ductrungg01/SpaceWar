@@ -50,8 +50,13 @@ public class Enemy001 : MonoBehaviour
         {
             m_gc.setGameOverState(true);
         }
-        else if (collision.CompareTag("DeathZone"))
+        if (collision.CompareTag("DeathZone"))
         {
+            Destroy(gameObject);
+        }
+        if (collision.CompareTag("Bullet"))
+        {
+            m_gc.IncreamentScore();
             Destroy(gameObject);
         }
     }
