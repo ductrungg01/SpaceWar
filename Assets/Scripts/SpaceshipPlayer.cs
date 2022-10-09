@@ -16,11 +16,13 @@ public class SpaceshipPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    private void FixedUpdate()
+    {
         xDirection = Input.GetAxisRaw("Horizontal");
         yDirection = Input.GetAxisRaw("Vertical");
-
-        if (xDirection != 0) Debug.Log(xDirection);
-        if (yDirection != 0) Debug.Log(yDirection);
 
         float xMoveStep = moveSpeed * Time.deltaTime * xDirection;
         float yMoveStep = moveSpeed * Time.deltaTime * yDirection;
